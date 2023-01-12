@@ -59,8 +59,6 @@ const ENC_SPACE_RE = /%20/g // }
 function commonEncode(text: string | number): string {
   return encodeURI('' + text)
     .replace(ENC_PIPE_RE, '|')
-    .replace(ENC_BRACKET_OPEN_RE, '[')
-    .replace(ENC_BRACKET_CLOSE_RE, ']')
 }
 
 /**
@@ -74,6 +72,8 @@ export function encodeHash(text: string): string {
     .replace(ENC_CURLY_OPEN_RE, '{')
     .replace(ENC_CURLY_CLOSE_RE, '}')
     .replace(ENC_CARET_RE, '^')
+    .replace(ENC_BRACKET_OPEN_RE, '[')
+    .replace(ENC_BRACKET_CLOSE_RE, ']')
 }
 
 /**
@@ -95,6 +95,8 @@ export function encodeQueryValue(text: string | number): string {
       .replace(ENC_CURLY_OPEN_RE, '{')
       .replace(ENC_CURLY_CLOSE_RE, '}')
       .replace(ENC_CARET_RE, '^')
+      .replace(ENC_BRACKET_OPEN_RE, '[')
+      .replace(ENC_BRACKET_CLOSE_RE, ']')
   )
 }
 
@@ -104,7 +106,10 @@ export function encodeQueryValue(text: string | number): string {
  * @param text - string to encode
  */
 export function encodeQueryKey(text: string | number): string {
-  return encodeQueryValue(text).replace(EQUAL_RE, '%3D')
+  return encodeQueryValue(text)
+    .replace(EQUAL_RE, '%3D')
+    .replace(ENC_BRACKET_OPEN_RE, '[')
+    .replace(ENC_BRACKET_CLOSE_RE, ']')
 }
 
 /**

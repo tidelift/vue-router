@@ -1,5 +1,5 @@
 {
-  "name": "vue-router",
+  "name": "@tidelift/vue-router",
   "version": "4.1.6",
   "main": "index.js",
   "unpkg": "dist/vue-router.global.js",
@@ -33,7 +33,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vuejs/router.git"
+    "url": "git+https://github.com/tidelift/router.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "bugs": {
     "url": "https://github.com/vuejs/router/issues"
